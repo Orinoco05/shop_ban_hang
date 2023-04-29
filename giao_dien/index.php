@@ -50,7 +50,7 @@ switch($controller){
             include_once 'View/admin/Product/product.php';
             break;
         case 'categoryAdmin':
-            include_once 'View/admin/Category/category.php';
+            include_once 'Controller/admin/Category_controller.php';
             break;
         case 'feedbackAdmin':
             include_once 'View/admin/Feedback/feedback.php';
@@ -86,10 +86,13 @@ switch($controller){
         case 'cartCustomer': {
             include_once 'Controller/customer/cartController.php';
         }break;
+        case 'homepage': 
+            include_once 'Controller/customer/productController.php';
           default:
           echo "Chưa chọn controller nào";
           break;
 
+
 }
-include_once 'View/Layout/Footer.php';
+// include_once 'View/Layout/Footer.php';
 ?>

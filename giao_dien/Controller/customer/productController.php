@@ -16,5 +16,8 @@
             include_once 'Models/customer/productModel.php';
             include_once 'View/customer/product/product_detail.php';
         break;
+        // case 'homepage':
+        //     include_once 'Models/customer/productModel.php';
+        //     include_once 
     }
 ?>

@@ -222,7 +222,6 @@
     <?php
     include_once "View/Layout/footer.php";
     ?>
-
 </body>
 
 </html>

@@ -9,6 +9,7 @@
         case '':
             // index(controller) -> thư mục controoler (tạo controller) -> tạo model
             include_once 'Models/customer/cartModel.php';
+            include_once 'View/customer/cart/cart.php';
             // include_once 'View/customer/cart/cart.php';
             break;
         case 'change_amount':
@@ -20,6 +21,8 @@
         case 'trashPr' :
             include_once 'Models/customer/cartModel.php';
             break;
-
+        case 'signout' :
+            include_once 'Models/customer/cartModel.php';
+            break;
     }
 ?>

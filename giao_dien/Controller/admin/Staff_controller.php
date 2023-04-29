@@ -13,6 +13,7 @@
             include_once 'Models/admin/Staff_model.php';
 //            Đổ dữ liệu lên view
             include_once 'View/admin/Layout/Main.php';
+            include_once 'View/admin/Layout/Footer.php';
             break;
     }
 ?>
