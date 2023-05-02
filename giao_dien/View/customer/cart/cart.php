@@ -121,8 +121,9 @@
                                 <?= $infor['totalPrice'] ?>
                             </h5>
                         </div>
-                        <button class="btn btn-block btn-primary font-weight-bold my-3 py-3">Proceed To
-                            Checkout</button>
+                        <a href="?controller=checkout"
+                            class="btn btn-block btn-primary font-weight-bold my-3 py-3">Proceed To
+                            Checkout</a>
                         <a href="?controller=cartCustomer&action=signout"
                             class="btn btn-block btn-danger font-weight-bold my-3 py-3">Delete cart</a>
                     </div>

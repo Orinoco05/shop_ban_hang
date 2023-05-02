@@ -51,17 +51,11 @@
                     <span class="menu-title">Products Detail</span>
                     <i class="menu-arrow"></i>
                 </a>
-                <div class="collapse" id="error">
-                    <ul class="nav flex-column sub-menu">
-                        <li class="nav-item"> <a class="nav-link" href="pages/samples/error-404.html"> 404 </a></li>
-                        <li class="nav-item"> <a class="nav-link" href="pages/samples/error-500.html"> 500 </a></li>
-                    </ul>
-                </div>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="pages/documentation/documentation.html">
-                    <i class="icon-paper menu-icon"></i>
-                    <span class="menu-title">Documentation</span>
+                    <i class="ti-palette menu-icon"></i>
+                    <span class="menu-title">Color</span>
                 </a>
             </li>
             <li class="nav-item">
