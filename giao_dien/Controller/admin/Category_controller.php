@@ -4,6 +4,8 @@ $action = '';
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
 }
+include_once 'View/admin/Layout/Header.php';
+include_once 'View/admin/Layout/Navbar.php';
 //    Kiểm tra hành động hiện tại
 switch ($action) {
     case '':
@@ -46,3 +48,5 @@ switch ($action) {
         include_once 'Models/admin/Category_model.php';
         break;
 }
+
+include_once 'View/admin/Layout/Footer.php';

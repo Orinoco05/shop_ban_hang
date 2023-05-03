@@ -6,7 +6,7 @@
         <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Thể loại /</span> Thêm thể loại</h4>
 
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12"> 
                 <div class="card mb-4">
                     <h5 class="card-header">Chi tiết</h5>
                     <hr class="my-0" />
@@ -18,7 +18,7 @@
                                     <input class="form-control" type="text" id="tl" name="tl" value="" autofocus
                                         required />
                                 </div>
-                                <div class="mt-2">
+                                <div class="mt-4">
                                     <button type="submit" class="btn btn-primary me-2">Thêm thể loại</button>
                                 </div>
                         </form>
@@ -29,6 +29,7 @@
             </div>
         </div>
     </div>
+</div>
     <!-- / Content -->
 
 

@@ -47,7 +47,7 @@ switch ($controller) {
         //         include_once 'Controller/Login_controller.php';
         break;
     case 'productAdmin':
-        include_once 'View/admin/Product/product.php';
+        include_once 'Controller/admin/Product_controller.php';
         break;
     case 'categoryAdmin':
         include_once 'Controller/admin/Category_controller.php';
@@ -95,6 +95,7 @@ switch ($controller) {
         break;
     case 'checkout':
         include_once 'Controller/customer/checkout_Controller.php';
+        break;
     default:
         echo "Chưa chọn controller nào";
         break;

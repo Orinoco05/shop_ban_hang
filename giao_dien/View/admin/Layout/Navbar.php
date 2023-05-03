@@ -95,7 +95,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="pages/documentation/documentation.html">
+                <a class="nav-link" href="index.php?controller=productAdmin">
                     <i class="ti-shopping-cart menu-icon"></i>
                     <span class="menu-title">Product</span>
                 </a>

@@ -22,7 +22,7 @@
                                         <input class="form-control" type="text" id="tl" name="tl"
                                             value="<?= $tl['Category_name'] ?>" autofocus />
                                     </div>
-                                    <div class="mt-2">
+                                    <div class="mt-4">
                                         <button type="submit" class="btn btn-primary me-2">Sửa</button>
                                     </div>
                             </form>
@@ -30,8 +30,8 @@
                         }
                         ?>
                     </div>
-                    <a style="color: #8592a3" href="index.php?controller=categoryAdmin">
-                        Hủy bỏ</a>
+                    <a style="color: #8592a3" href="index.php?controller=categoryAdmin"><button type="reset"
+                            class="btn btn-outline-secondary">Hủy bỏ</button></a>
                 </div>
             </div>
         </div>
