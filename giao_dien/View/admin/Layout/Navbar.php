@@ -41,7 +41,7 @@
                 <div class="collapse" id="auth">
                     <ul class="nav flex-column sub-menu">
                         <li class="nav-item"> <a class="nav-link" href="index.php?controller=Login"> Login </a></li>
-                        <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>
+                        
                     </ul>
                 </div>
             </li>
@@ -94,7 +94,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="pages/documentation/documentation.html">
+                <a class="nav-link" href="index.php?controller=detailAdmin">
                     <i class="ti-shopping-cart-full menu-icon"></i>
                     <span class="menu-title">Product detail</span>
                 </a>

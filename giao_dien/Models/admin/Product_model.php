@@ -11,7 +11,7 @@ function index()
         $page = $_GET['page'];
     }
     include_once 'config/config.php';
-    $sqlCount = "SELECT COUNT(*) AS count_record FROM product WHERE product_name LIKE '%$search%'";
+    $sqlCount = "SELECT COUNT(*) AS count_record FROM product WHERE Product_name LIKE '%$search%'";
     $counts = mysqli_query($conn, $sqlCount);
     foreach ($counts as $each) {
         $countRecord = $each['count_record'];
@@ -47,7 +47,7 @@ function store()
     $img = $_POST['img'];
     $category = $_POST['id_category'];
     include_once 'config/config.php';
-    $sql_check = "SELECT id_product FROM product WHERE product_name = '$name'";
+    $sql_check = "SELECT id_product FROM product WHERE Product_name = '$name'";
     $query_check = mysqli_query($conn, $sql_check);
     if (mysqli_num_rows($query_check) > 0) {
         // Product already exists

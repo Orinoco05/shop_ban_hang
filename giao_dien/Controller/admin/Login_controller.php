@@ -11,7 +11,7 @@ switch ($action) {
             location.href = "index.php?controller=";
         </script>';
         } else{
-            include_once 'View/Layout/Login.php';
+            include_once 'View/admin/Layout/Login.php';
         } 
         break;
     case 'login':
