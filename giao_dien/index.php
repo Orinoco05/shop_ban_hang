@@ -35,16 +35,16 @@ if (isset($_GET['controller'])) {
 switch ($controller) {
     case 'admin':
 
-        // if (isset ($_SESSION ['username']) && isset($_SESSION ['password'])){
+        if (isset ($_SESSION ['username']) && isset($_SESSION ['password'])){
         include_once 'Controller/admin/Staff_controller.php';
-        // } else {
-        //     echo '<script>
-        //                     location.href = "index.php?controller=Login";
-        //                 </script>';
-        // }
-        //       break;
-        //       case 'Login':
-        //         include_once 'Controller/Login_controller.php';
+        } else {
+            echo '<script>
+                            location.href = "index.php?controller=Login";
+                        </script>';
+        }
+              break;
+              case 'Login':
+                include_once 'Controller/Login_controller.php';
         break;
     case 'productAdmin':
         include_once 'Controller/admin/Product_controller.php';

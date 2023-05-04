@@ -8,11 +8,12 @@ if (isset($_GET['action'])) {
 switch ($action) {
     case '':
         // index(controller) -> thư mục controoler (tạo controller) -> tạo model
+        include_once 'Models/customer/orderModel.php';
         include_once 'View/customer/order/checkout.php';
         // include_once 'View/customer/cart/cart.php';
         break;
     case 'checkout':
-
+        include_once 'Models/customer/orderModel.php';
         break;
 
 }

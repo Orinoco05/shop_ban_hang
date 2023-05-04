@@ -13,6 +13,7 @@ function indexProduct()
     return $products;
 }
 
+// fix 1 phần
 function product_detail()
 {
     $id = $_GET['id'];
@@ -20,9 +21,9 @@ function product_detail()
     include_once 'config/config.php';
     $sql = "SELECT product_detail.*,product.*, category.Category_name FROM ((product_detail JOIN product ON product_detail.ID_product = product.ID_product) JOIN category ON product.id_category = category.id_category)  WHERE product_detail.ID_product = $id";
     $result = mysqli_query($conn, $sql);
-    $sql_size = "SELECT size.*, product_detail.ID_size FROM product_detail JOIN size ON product_detail.ID_size = size.ID_size WHERE ID_product = 1 GROUP BY size.Size_name, product_detail.ID_size";
+    $sql_size = "SELECT size.*, product_detail.ID_size FROM product_detail JOIN size ON product_detail.ID_size = size.ID_size WHERE ID_product = $id GROUP BY size.Size_name, product_detail.ID_size";
     $size = mysqli_query($conn, $sql_size);
-    $sql_color = "SELECT color.*, product_detail.ID_color FROM product_detail JOIN color ON product_detail.ID_color = color.ID_color WHERE ID_product = 1 GROUP BY color.Color_name, product_detail.ID_color";
+    $sql_color = "SELECT color.*, product_detail.ID_color FROM product_detail JOIN color ON product_detail.ID_color = color.ID_color WHERE ID_product = $id GROUP BY color.Color_name, product_detail.ID_color";
     $color = mysqli_query($conn, $sql_color);
     $sql_total = "SELECT SUM(quantity) as total, ID_product FROM product_detail WHERE ID_product = $id GROUP BY ID_product";
     $total = mysqli_fetch_assoc(mysqli_query($conn, $sql_total));

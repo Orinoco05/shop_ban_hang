@@ -30,12 +30,11 @@ function indexCart()
         }
     }
     include_once 'config/closeDB.php';
-    $count = count($cart);
     $infor['cart'] = $cart;
-    $infor['count'] = $count;
     $infor['totalPrice'] = $totalPrice;
     return $infor;
 }
+// fix
 function add_to_cart()
 {
     $product_id = $_POST['id'];
@@ -71,7 +70,7 @@ function add_to_cart()
         if ($data_check['Quantity'] > 0) {
             if (isset($_SESSION['cart'])) {
                 if (isset($_SESSION['cart'][$product_id . '_' . $color . '_' . $size]) && $_SESSION['cart'][$product_id . '_' . $color . '_' . $size]['color'] == $color && $_SESSION['cart'][$product_id . '_' . $color . '_' . $size]['size'] == $size) {
-                    if ($_SESSION['cart'][$product_id . '_' . $color . '_' . $size]['amount'] < $data_check['Quantity']) {
+                    if ($_SESSION['cart'][$product_id . '_' . $color . '_' . $size]['amount'] <= $data_check['Quantity']) {
                         $_SESSION['cart'][$product_id . '_' . $color . '_' . $size]['amount'] += $amount;
                         echo '<script language="javascript">';
                         echo 'alert("Add to cart successfully");';
@@ -84,7 +83,26 @@ function add_to_cart()
                         echo '</script>';
                     }
                 } else {
-
+                    if ($_POST['amount'] <= $data_check['Quantity']) {
+                        $_SESSION['cart'][$product_id . '_' . $color . '_' . $size] = array(
+                            'product_id' => $product_id,
+                            'amount' => $amount,
+                            'color' => $color,
+                            'size' => $size
+                        );
+                        echo '<script language="javascript">';
+                        echo 'alert("Add to cart successfully");';
+                        echo 'window.location.href="?controller=shop&action=product_detail&id=' . $product_id . '"';
+                        echo '</script>';
+                    } else {
+                        echo '<script language="javascript">';
+                        echo 'alert("out of stock");';
+                        echo 'window.location.href="?controller=shop&action=product_detail&id=' . $product_id . '"';
+                        echo '</script>';
+                    }
+                }
+            } else {
+                if ($_POST['amount'] <= $data_check['Quantity']) {
                     $_SESSION['cart'][$product_id . '_' . $color . '_' . $size] = array(
                         'product_id' => $product_id,
                         'amount' => $amount,
@@ -95,18 +113,12 @@ function add_to_cart()
                     echo 'alert("Add to cart successfully");';
                     echo 'window.location.href="?controller=shop&action=product_detail&id=' . $product_id . '"';
                     echo '</script>';
+                } else {
+                    echo '<script language="javascript">';
+                    echo 'alert("out of stock");';
+                    echo 'window.location.href="?controller=shop&action=product_detail&id=' . $product_id . '"';
+                    echo '</script>';
                 }
-            } else {
-                $_SESSION['cart'][$product_id . '_' . $color . '_' . $size] = array(
-                    'product_id' => $product_id,
-                    'amount' => $amount,
-                    'color' => $color,
-                    'size' => $size
-                );
-                echo '<script language="javascript">';
-                echo 'alert("Add to cart successfully");';
-                echo 'window.location.href="?controller=shop&action=product_detail&id=' . $product_id . '"';
-                echo '</script>';
             }
         }
     } else {
