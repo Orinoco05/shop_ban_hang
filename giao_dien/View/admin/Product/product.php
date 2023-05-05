@@ -58,7 +58,8 @@
                                             <?= $product['Product_name'] ?>
                                         </td>
                                         <td>
-                                            <img style="display: flex;"  src="img/<?= $product['img'] ?>" alt="" width="150px" height="150px">
+                                            <img style="display: flex;" src="img/<?= $product['img'] ?>" alt=""
+                                                width="150px" height="150px">
                                         </td>
                                         <td>
                                             <a style="color: white"

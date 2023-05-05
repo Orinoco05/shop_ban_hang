@@ -30,7 +30,7 @@
                             </div>
                             <h4>Hello! let's get started</h4>
                             <h6 class="font-weight-light">Sign in to continue.</h6>
-                            <form method="POST" class="pt-3" action="?controller=loginCustomer&action=access_login">
+                            <form method="POST" class="pt-3" action="?controller=userCustomer&action=access_login">
                                 <div class="form-group">
                                     <input type="text" name="username" class="form-control form-control-lg"
                                         id="exampleInputEmail1" placeholder="Username">

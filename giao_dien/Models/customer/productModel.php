@@ -23,7 +23,7 @@ function product_detail()
     $result = mysqli_query($conn, $sql);
     $sql_size = "SELECT size.*, product_detail.ID_size FROM product_detail JOIN size ON product_detail.ID_size = size.ID_size WHERE ID_product = $id GROUP BY size.Size_name, product_detail.ID_size";
     $size = mysqli_query($conn, $sql_size);
-    $sql_color = "SELECT color.*, product_detail.ID_color FROM product_detail JOIN color ON product_detail.ID_color = color.ID_color WHERE ID_product = $id GROUP BY color.Color_name, product_detail.ID_color";
+    $sql_color = "SELECT color.*, product_detail.ID_color FROM product_detail JOIN color ON product_detail.ID_color = color.ID_color WHERE  ID_product = $id GROUP BY color.Color_name, product_detail.ID_color";
     $color = mysqli_query($conn, $sql_color);
     $sql_total = "SELECT SUM(quantity) as total, ID_product FROM product_detail WHERE ID_product = $id GROUP BY ID_product";
     $total = mysqli_fetch_assoc(mysqli_query($conn, $sql_total));

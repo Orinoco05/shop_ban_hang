@@ -15,15 +15,15 @@ switch ($action) {
         } 
         break;
     case 'login':
-        include_once 'Models/Login_model.php';
-        if ($test == 0){
-            echo '<script>
-                    location.href = "index.php?controller=Login";
-                </script>';
-        } elseif($test == 1){
-            echo '<script>
-                    location.href = "index.php?controller=";
-                </script>';
-        }
+        include_once 'Models/admin/Login_model.php';
+        // if ($test == 0){
+        //     echo '<script>
+        //             location.href = "index.php?controller=Login";
+        //         </script>';
+        // } elseif($test == 1){
+        //     echo '<script>
+        //             location.href = "index.php?controller=admin";
+        //         </script>';
+        // }
     }
 ?>

@@ -100,7 +100,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="pages/documentation/documentation.html">
+                <a class="nav-link" href="index.php?controller=billAdmin">
                     <i class="ti-wallet menu-icon"></i>
                     <span class="menu-title">Order</span>
                 </a>

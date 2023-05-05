@@ -43,10 +43,8 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Người mua</th>
                                     <th>Ngày mua</th>
                                     <th>Trạng thái</th>
-                                    <th>Tổng tiền</th>
                                     <th>Hành động</th>
                                 </tr>
                             </thead>
@@ -56,44 +54,39 @@
                                     ?>
                                     <tr>
                                         <td>
-                                            <?= $bill['id_bill'] ?>
+                                            <?= $bill['ID_order'] ?>
                                         </td>
                                         <td>
-                                            <?= $bill['name_customer'] ?>
-                                        </td>
-                                        <td>
-                                            <?= $bill['purchase_date'] ?>
+                                            <?= $bill['Purchase_date'] ?>
                                         </td>
                                         <td>
                                             <?php
-                                            if ($bill['status'] == 0) {
+                                            if ($bill['Status'] == 0) {
                                                 echo "Chờ xử lý";
-                                            } elseif ($bill['status'] == 1) {
+                                            } elseif ($bill['Status'] == 1) {
                                                 echo "Đang xử lý";
-                                            } elseif ($bill['status'] == 2) {
+                                            } elseif ($bill['Status'] == 2) {
                                                 echo "Đang giao";
-                                            } elseif ($bill['status'] == 3) {
+                                            } elseif ($bill['Status'] == 3) {
                                                 echo "Đã giao hàng";
-                                            } elseif ($bill['status'] == 4) {
+                                            } elseif ($bill['Status'] == 4) {
                                                 echo "Đã hủy";
                                             } ?>
                                         </td>
-                                        <td>
-                                            <?= $bill['total'] ?>
-                                        </td>
+
                                         <td>
                                             <a style="color: white"
-                                                href="index.php?controller=billAdmin&action=details&id=<?= $bill['id_bill'] ?>"><button
+                                                href="index.php?controller=billAdmin&action=details&id=<?= $bill['ID_order'] ?>"><button
                                                     type="button" class="btn btn-success">Xem chi tiết</button></a>
                                             <?php
-                                            if ($bill['status'] == 4) {
+                                            if ($bill['Status'] == 4) {
 
-                                            } elseif ($bill['status'] == 3) {
+                                            } elseif ($bill['Status'] == 3) {
 
                                             } else {
                                                 ?>
                                                 <a style="color: white"
-                                                    href="index.php?controller=billAdmin&action=edit&id=<?= $bill['id_bill'] ?>"><button
+                                                    href="index.php?controller=billAdmin&action=show_edit_order&id=<?= $bill['ID_order'] ?>"><button
                                                         type="button" class="btn btn-info">Sửa</button></a>
                                                 <?php
                                             }

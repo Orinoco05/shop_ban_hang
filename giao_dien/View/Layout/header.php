@@ -15,8 +15,13 @@
                     <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">My
                         Account</button>
                     <div class="dropdown-menu dropdown-menu-right">
-                        <a href="?controller=loginCustomer" class="dropdown-item" type="button">Sign in</a>
-                        <a class="dropdown-item" type="button">Sign up</a>
+                        <a href="?controller=userCustomer" class="dropdown-item" type="button">Sign in</a>
+                        <a href="?controller=userCustomer&action=signUp" class="dropdown-item" type="button">Sign up</a>
+                        <?php if (isset($_SESSION['email']) && isset($_SESSION['password']) && $_SESSION['role'] == 2) {
+                            echo "<a href='?controller=userCustomer&action=signOut' class='dropdown-item' type='button'>Sign out</a>";
+                        } else {
+                            echo "";
+                        } ?>
                     </div>
                 </div>
             </div>
@@ -75,12 +80,11 @@
             <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 bg-light"
                 id="navbar-vertical" style="width: calc(100% - 30px); z-index: 999;">
                 <div class="navbar-nav w-100">
-                    <a href="" class="nav-item nav-link">Shirts</a>
-                    <a href="" class="nav-item nav-link">Sleepwear</a>
-                    <a href="" class="nav-item nav-link">Sportswear</a>
-                    <a href="" class="nav-item nav-link">Jumpsuits</a>
-                    <a href="" class="nav-item nav-link">Blazers</a>
-                    <a href="" class="nav-item nav-link">Jackets</a>
+                    <a href="" class="nav-item nav-link">Áo Khoác</a>
+                    <a href="" class="nav-item nav-link">Tanktop</a>
+                    <a href="" class="nav-item nav-link">Áo thun</a>
+                    <a href="" class="nav-item nav-link">Áo Polo</a>
+                    <a href="" class="nav-item nav-link">Áo sơ mi</a>
                 </div>
             </nav>
         </div>
@@ -91,7 +95,7 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav mr-auto py-0">
-                        <a href="index.php" class="nav-item nav-link">Home</a>
+                        <a href="index.php?controller=home" class="nav-item nav-link">Home</a>
                         <a href="index.php?controller=shop" class="nav-item nav-link active">Shop</a>
 
                     </div>

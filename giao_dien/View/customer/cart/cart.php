@@ -1,3 +1,4 @@
+<!-- fix -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -57,21 +58,9 @@
                                 </td>
                                 <td class="align-middle">
                                     <div class="input-group quantity mx-auto" style="width: 130px;">
-                                        <!-- <div class="input-group-btn">
-                                            <button class="btn btn-sm btn-primary btn-minus">
-                                                <i class="fa fa-minus"></i>
-                                            </button>
-                                        </div>
-                                        <input type="number"
-                                            class="form-control input_amount form-control-sm bg-secondary border-0 text-center"
-                                            value="<?= $value['amount'] ?>">
                                         <div class="input-group-btn">
-                                            <button class="btn btn-sm btn-primary btn-plus">
-                                                <i class="fa fa-plus"></i>
-                                            </button>
-                                        </div> -->
-                                        <div class="input-group-btn">
-                                            <a class="btn btn-sm btn-primary btn-minus">
+                                            <a href="?controller=cartCustomer&action=change_amount&mode=1&key=<?= $key ?>"
+                                                class="btn btn-sm btn-primary btn-minus">
                                                 <i class="fa fa-minus"></i>
                                             </a>
                                         </div>
@@ -79,7 +68,8 @@
                                             class="form-control input_amount bg-secondary border-0 text-center"
                                             name="amount" value="<?= $value['amount'] ?>">
                                         <div class="input-group-btn">
-                                            <a class="btn btn-sm btn-primary btn-plus">
+                                            <a href="?controller=cartCustomer&action=change_amount&mode=2&key=<?= $key ?>"
+                                                class="btn btn-sm btn-primary btn-plus">
                                                 <i class="fa fa-plus"></i>
                                             </a>
                                         </div>
@@ -89,8 +79,10 @@
                                     $
                                     <?= $value['totalPrice'] ?>
                                 </td>
-                                <td class="align-middle"><button class="btn btn-sm btn-danger"><i
-                                            class="fa fa-times"></i></button></td>
+                                <td class="align-middle">
+                                    <a href="?controller=cartCustomer&action=trashPr&key=<?= $key ?>"
+                                        class="btn btn-sm btn-danger"><i class="fa fa-times"></i></a>
+                                </td>
                             </tr>
                         </tbody>
                     <?php } ?>
@@ -124,8 +116,6 @@
                         <a href="?controller=checkout"
                             class="btn btn-block btn-primary font-weight-bold my-3 py-3">Proceed To
                             Checkout</a>
-                        <a href="?controller=cartCustomer&action=signout"
-                            class="btn btn-block btn-danger font-weight-bold my-3 py-3">Delete cart</a>
                     </div>
                 </div>
             </div>

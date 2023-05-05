@@ -1,50 +1,74 @@
 <?php
 function cloneData()
 {
-    $data = array();
-    $nameCustomer = $_SESSION['fullName'];
-    $email = $_SESSION['email'];
-    $phone = $_SESSION['phone'];
-    include_once 'config/config.php';
-    $delivery = mysqli_query($conn, "SELECT * FROM delivery_methods");
-    $payment = mysqli_query($conn, "SELECT * FROM payment_methods");
-    $data = array();
-    // cart
-    $cart = array();
-    $totalPrice = 0;
-    if (isset($_SESSION['cart'])) {
-        foreach ($_SESSION['cart'] as $key => $value) {
-            $product_id = (int) $value['product_id'];
-            $id_size = (int) $value['size'];
-            $id_color = (int) $value['color'];
-            $amount = $value['amount'];
-            $sql = "SELECT product_detail.img_2rd, product.Product_name, product.Price, size.Size_name, color.Color_name FROM (((product_detail JOIN product ON product.ID_product = product_detail.ID_product)
-                     JOIN size ON size.ID_size = product_detail.ID_size)
-                      JOIN color ON color.ID_color = product_detail.ID_color)
-                       WHERE product_detail.ID_product = $product_id AND product_detail.ID_color = $id_color AND product_detail.ID_size = $id_size";
-            $products = mysqli_query($conn, $sql);
-            foreach ($products as $product) {
-                $cart[$key]['img'] = $product['img_2rd'];
-                $cart[$key]['product_name'] = $product['Product_name'];
-                $cart[$key]['price'] = $product['Price'];
-                $cart[$key]['amount'] = $amount;
-                $cart[$key]['totalPrice'] = $product['Price'] * $amount;
-                $cart[$key]['size'] = $product['Size_name'];
-                $cart[$key]['color'] = $product['Color_name'];
-            }
-            $totalPrice += $cart[$key]['totalPrice'];
-        }
-    }
-    $data['cart'] = $cart;
-    $data['totalPrice'] = $totalPrice;
+    if (isset($_SESSION['cart']) && ! empty($_SESSION['cart'])) {
+        if (isset($_SESSION['email']) && isset($_SESSION['password'])) {
+            if ($_SESSION['role'] == 2) {
+                $data = array();
+                $nameCustomer = $_SESSION['fullName'];
+                $email = $_SESSION['email'];
+                $phone = $_SESSION['phone'];
+                include_once 'config/config.php';
+                $delivery = mysqli_query($conn, "SELECT * FROM delivery_methods");
+                $payment = mysqli_query($conn, "SELECT * FROM payment_methods");
+                $data = array();
+                // cart
+                $cart = array();
+                $totalPrice = 0;
+                if (isset($_SESSION['cart'])) {
+                    foreach ($_SESSION['cart'] as $key => $value) {
+                        $product_id = (int) $value['product_id'];
+                        $id_size = (int) $value['size'];
+                        $id_color = (int) $value['color'];
+                        $amount = $value['amount'];
+                        $sql = "SELECT product_detail.img_2rd, product.Product_name, product.Price, size.Size_name, color.Color_name FROM (((product_detail JOIN product ON product.ID_product = product_detail.ID_product)
+                             JOIN size ON size.ID_size = product_detail.ID_size)
+                              JOIN color ON color.ID_color = product_detail.ID_color)
+                               WHERE product_detail.ID_product = $product_id AND product_detail.ID_color = $id_color AND product_detail.ID_size = $id_size";
+                        $products = mysqli_query($conn, $sql);
+                        foreach ($products as $product) {
+                            $cart[$key]['img'] = $product['img_2rd'];
+                            $cart[$key]['product_name'] = $product['Product_name'];
+                            $cart[$key]['price'] = $product['Price'];
+                            $cart[$key]['amount'] = $amount;
+                            $cart[$key]['totalPrice'] = $product['Price'] * $amount;
+                            $cart[$key]['size'] = $product['Size_name'];
+                            $cart[$key]['color'] = $product['Color_name'];
+                        }
+                        $totalPrice += $cart[$key]['totalPrice'];
+                    }
+                }
+                $data['cart'] = $cart;
+                $data['totalPrice'] = $totalPrice;
 
-    $data['nameCustomer'] = $nameCustomer;
-    $data['email'] = $email;
-    $data['phone'] = $phone;
-    $data['payment'] = $payment;
-    $data['delivery'] = $delivery;
-    include_once 'config/closeDB.php';
-    return $data;
+                $data['nameCustomer'] = $nameCustomer;
+                $data['email'] = $email;
+                $data['phone'] = $phone;
+                $data['payment'] = $payment;
+                $data['delivery'] = $delivery;
+                include_once 'config/closeDB.php';
+                return $data;
+            } else {
+                echo '<script language="javascript">';
+                echo 'alert("Sign up customer account to cart");';
+                echo 'window.location.href="?controller=cartCustomer"';
+                echo '</script>';
+            }
+
+        } else {
+            echo '<script language="javascript">';
+            echo 'alert("Sign up to cart");';
+            echo 'window.location.href="?controller=cartCustomer"';
+            echo '</script>';
+        }
+
+    } else {
+        echo '<script language="javascript">';
+        echo 'alert("Cart empty");';
+        echo 'window.location.href="?controller=cartCustomer"';
+        echo '</script>';
+    }
+
 }
 function checkout()
 {

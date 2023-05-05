@@ -35,17 +35,17 @@ if (isset($_GET['controller'])) {
 switch ($controller) {
     case 'admin':
 
-        // if (isset ($_SESSION ['username']) && isset($_SESSION ['password'])){
+        if (isset ($_SESSION ['username']) && isset($_SESSION ['password'])){
         include_once 'Controller/admin/Staff_controller.php';
-        // } else {
-        //     echo '<script>
-        //     location.href = "index.php?controller=Login";
-        // </script>';
-        // }
+        } else {
+            echo '<script>
+            location.href = "index.php?controller=Login";
+        </script>';
+        }
         break;
-    //       case 'Login':
-    //         include_once 'Controller/admin/Login_controller.php';
-    // break;
+          case 'Login':
+            include_once 'Controller/admin/Login_controller.php';
+    break;
     case 'productAdmin':
         include_once 'Controller/admin/Product_controller.php';
         break;
@@ -63,6 +63,7 @@ switch ($controller) {
         break;
     case 'billAdmin':
         include_once 'Controller/admin/Order_controller.php';
+        break;
     case 'shop':
         // if (isset ($_SESSION ['username']) && isset($_SESSION ['password'])){
         include_once 'Controller/customer/productController.php';
@@ -91,7 +92,7 @@ switch ($controller) {
             include_once 'Controller/customer/cartController.php';
         }
         break;
-    case 'loginCustomer':
+    case 'userCustomer':
         include_once 'Controller/customer/userController.php';
         break;
     case 'homepage':

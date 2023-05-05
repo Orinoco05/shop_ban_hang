@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <?php
     include_once "View/Layout/head.php";
-?>
+    ?>
 </head>
 
 <body>
@@ -183,24 +183,28 @@
                             </div>
                         </div>
                     </div>
-                    <?php foreach($products as $product){ ?>
-                    <div class="col-lg-4 col-md-6 col-sm-6 pb-1">
-                        <div class="product-item bg-light mb-4">
-                            <div class="product-img position-relative overflow-hidden">
-                                <img class="img-fluid w-100 " src="img/<?= $product['img']?>" alt="">
-                            </div>
-                            <div class="text-center py-4">
-                                <a class="h6 text-decoration-none text-truncate"
-                                    href="index.php?controller=shop&action=product_detail&id=<?= $product['ID_product']?>"><?=  $product['Product_name']?></a>
-                                <div class="d-flex align-items-center justify-content-center mt-2">
-                                    <h5>$ <?= number_format($product['Price'], 2, '.', ',') ?></h5>
-                                    <h6 class="text-muted ml-2">
-                                        <del>$ <?= number_format($product['Price'], 2, '.', ',') ?></del>
-                                    </h6>
+                    <?php foreach ($products as $product) { ?>
+                        <div class="col-lg-4 col-md-6 col-sm-6 pb-1">
+                            <div class="product-item bg-light mb-4">
+                                <div class="product-img position-relative overflow-hidden">
+                                    <img class="img-fluid w-100 " src="img/<?= $product['img'] ?>" alt="">
+                                </div>
+                                <div class="text-center py-4">
+                                    <a class="h6 text-decoration-none text-truncate"
+                                        href="index.php?controller=shop&action=product_detail&id=<?= $product['ID_product'] ?>"><?= $product['Product_name'] ?></a>
+                                    <div class="d-flex align-items-center justify-content-center mt-2">
+                                        <h5>$
+                                            <?= number_format($product['Price'], 2, '.', ',') ?>
+                                        </h5>
+                                        <h6 class="text-muted ml-2">
+                                            <del>$
+                                                <?= number_format($product['Price'], 2, '.', ',') ?>
+                                            </del>
+                                        </h6>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     <?php } ?>
                     <div class="col-12">
                         <nav>

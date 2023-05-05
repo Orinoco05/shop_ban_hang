@@ -61,7 +61,7 @@
                                             <?= $product['Product_name'] ?>
                                         </td>
                                         <td>
-                                            <img style="display: flex;" src="img/<?= $product['img'] ?>" alt=""
+                                            <img styl2e="display: flex;" src="img/<?= $product['img_2rd'] ?>" alt=""
                                                 width="150px" height="150px">
                                         </td>
 
@@ -75,7 +75,7 @@
                                             <?= $product['Quantity'] ?>
                                         </td>
                                         <td>
-                                            
+
                                             <a style="color: white"
                                                 href="index.php?controller=detailAdmin&action=edit&id=<?= $product['ID_product_detail'] ?>"><button
                                                     type="button" class="btn btn-info">Sửa</button></a>
